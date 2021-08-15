@@ -33,24 +33,26 @@ function result() {
     const xItem = randomValueFromArray(insertX);
     const yItem = randomValueFromArray(insertY);
     const zItem = randomValueFromArray(insertZ);
-
+    
     newStory = newStory
-      .replace(":insertx:", xItem)
-      .replace(":inserty:", yItem)
-      .replace(":insertz:", zItem)
-      .replace(":insertx:", xItem);
+    .replace(":insertx:", xItem)
+    .replace(":inserty:", yItem)
+    .replace(":insertz:", zItem)
+    .replace(":insertx:", xItem);
     
-    // if(customName.value !== '') {
-    //     let name = customName.value;
-        
-    // }
+    if(customName.value !== '') {
+        let name = customName.value;
+        newStory = newStory.replace('Bob', name);
+    } 
     
-    // if(document.getElementById("uk").checked) {
-    //     let weight = Math.round(300);
-    //     let temperature =  Math.round(94);
-        
-    // }
+    if(document.getElementById("uk").checked) {
+        let weight = Math.round(300 / 14);
+        let temperature =  Math.round((94 - 32) / 1.8);
+        newStory = newStory
+          .replace("300 pound", `${weight} kilograms`)
+          .replace("94 fahrenheit", `${temperature} celsius`);
+    }
     
-    // story.textContent = ;
-    // story.style.visibility = 'visible';
+    story.textContent = newStory;
+    story.style.visibility = 'visible';
 }
